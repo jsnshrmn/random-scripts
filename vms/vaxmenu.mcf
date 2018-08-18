@@ -1,0 +1,33 @@
+SCREEN MAIN
+
+TITLE "M A I N   M E N U"
+PROMPT @23,1 "Selection? "
+SPACING 1
+ORIGIN 4
+
+        ITEM HOLDS
+         DESCRIPTION "Remove or Add a Student Hold"
+         RUN REGEXE:HOLDENTRY
+        END ITEM HOLDS
+
+        ITEM SORT
+         DESCRIPTION "Select and/or order records on field data"
+         MCR COMMAND "DMS:SORT"
+        END ITEM SORT
+
+        ITEM PRINT
+         DESCRIPTION "Print columnar reports"
+         MCR COMMAND "DMS:PRINT"
+        END ITEM PRINT
+
+        ITEM REPORTS
+         DESCRIPTION "View reports"
+         MCR COMMAND "UT:FILEVIEWER *.LIS"
+        END ITEM REPORTS
+
+        ITEM VMSMENU
+         DESCRIPTION "VMS Command Menu"
+         DCL COMMAND "@DMS:DMSMENU ADMIN:[USAOPOISE]VMSMENU"
+        END ITEM VMSMENU
+
+END SCREEN MAIN
